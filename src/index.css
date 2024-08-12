@@ -35,6 +35,32 @@ h1 {
   line-height: 1.1;
 }
 
+.cont {
+  background-color: rgb(194, 219, 254);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.whole-page{
+  background-color: #213547;
+}
+
+.statecard{
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-entregado {
+  background-color: rgb(26, 135, 84) !important;
+  border-color: rgb(26, 135, 84) !important;
+  color: #FFF !important;
+}
+
+.btn-entregado:hover{
+  cursor: default;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,15 +80,3 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

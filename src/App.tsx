@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Registration from "./components/Registration";
+import Warehouse from "./components/Warehouse";
+import { EView } from "./config/enums";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [view, setView] = useState("");
+
+  const handleView = (e: any) => {
+    const value = e.target.id;
+    console.log(e.target);
+
+    if (value === "REV") {
+      setView(EView.WAREHOUSE);
+    } else {
+      setView(EView.REGISTRY);
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {!view ? (
+        <>
+          <h1>¿Qué accion deseas llevar a cabo?</h1>
+          <div className="d-grid gap-2 col-6 mx-auto my-5">
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={handleView}
+            >
+              <h2 id='REG'>Registrar Productos</h2>
+            </button>
+            <button
+              className="btn btn-dark"
+              type="button"
+              onClick={handleView}
+            >
+              <h2 id='REV'>Revisar inventario actual</h2>
+            </button>
+          </div>
+        </>
+      ) : view === EView.WAREHOUSE ? (
+        <Warehouse></Warehouse>
+      ) : (
+        <Registration></Registration>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
